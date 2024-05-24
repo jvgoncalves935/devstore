@@ -3,6 +3,7 @@ import Image from 'next/image'
 import { redirect } from "next/navigation";
 import { Product } from "@/data/types/product";
 import { api } from "@/data/api";
+import { Suspense } from "react";
 
 interface SearchProps {
   searchParams: {
@@ -39,7 +40,7 @@ export default async function Search({ searchParams }: SearchProps) {
 
         <div className="grid grid-cols-3 gap-6">
           {products.map(product => {
-            return (
+            return (   
               <Link 
                 key={product.id}
                 href={`/product/${product.slug}`}
