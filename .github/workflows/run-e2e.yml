@@ -32,9 +32,6 @@ jobs:
                 key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
                 restore-keys: |
                     ${{ runner.os }}-pnpm-store-
-        
-            - name: Install dependencies
-              run: pnpm install --no-frozen-lockfile
             
 
             - name: Set up Cypress binary cache
@@ -42,6 +39,9 @@ jobs:
               with:
                 path: ~/.cache/Cypress
                 key: ${{ runner.os }}-cypress-${{ hashFiles('pnpm-lock.yaml') }}
+
+            - name: Install dependencies
+              run: pnpm install --frozen-lockfile
 
             - name: Cypress run
               uses: cypress-io/github-action@v6
