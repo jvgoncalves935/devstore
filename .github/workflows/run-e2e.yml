@@ -34,7 +34,7 @@ jobs:
                     ${{ runner.os }}-pnpm-store-
         
             - name: Install dependencies
-              run: pnpm install
+              run: pnpm ci
 
             - name: Cypress run
               uses: cypress-io/github-action@v6
