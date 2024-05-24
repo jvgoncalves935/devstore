@@ -34,7 +34,7 @@ jobs:
                     ${{ runner.os }}-pnpm-store-
         
             - name: Install dependencies
-              run: pnpm ci
+              run: pnpm install --frozen-lockfile
 
             - name: Cypress run
               uses: cypress-io/github-action@v6
